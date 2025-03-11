@@ -1,0 +1,260 @@
+/*
+Theme Name: Brandium
+Theme URI: https://effethemes.com/themes/brandium-wordpress-theme/
+Author: Effe Themes
+Author URI: https://effethemes.com/
+Description: Brandium is a multipurpose, dark, and visually striking block-based theme, designed for agencies, studios, and businesses looking to stand out. Its luminous animated background adds depth and sophistication, making it perfect for marketing, creative portfolios, and corporate websites. With full site editing (FSE), you have complete control over layouts, colors, and typography, allowing effortless customization. Whether you need a sleek business site or a bold creative showcase, Brandium delivers modern aesthetics, high performance, and ultimate flexibility to elevate your brand online.
+Requires at least: 6.6
+Tested up to: 6.6
+Requires PHP: 5.7
+Version: 1.1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: brandium
+Tags: blog, portfolio, block-styles, e-commerce, full-site-editing, two-columns, full-width-template, custom-logo, custom-menu, custom-background, editor-style, block-patterns, custom-header, translation-ready, template-editing
+*/
+
+/* ================= > General Styles < ================= */
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--wp--preset--color--custom-background-primary);
+  color: var(--wp--preset--color--custom-text-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+a {
+  color: inherit;
+  -webkit-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul > li > a {
+  text-decoration: none;
+}
+
+ul > li > a:hover {
+  color: var(--wp--preset--color--custom-primary) !important;
+}
+
+:where(.wp-site-blocks) > * {
+  -webkit-margin-before: 0;
+          margin-block-start: 0;
+}
+
+.is-style-outline > a {
+  background: transparent !important;
+}
+
+/* ================= > Popup < ================= */
+
+.brandium-fixed-message {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  background: var(--wp--preset--color--custom-primary) !important;
+  padding: 20px 20px;
+  z-index: 1000;
+  word-wrap: break-word;
+  max-height: 70% !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.brandium-fixed-message a {
+  color: #fff;
+  writing-mode: vertical-rl;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  word-wrap: break-word;
+  max-height: 70% !important;
+}
+
+/* ================= > Background Lights < ================= */
+
+.bg-light-custom-primary {
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.bg-light-custom-primary::before,
+.bg-light-custom-primary::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 10%, var(--wp--preset--color--custom-primary) 80%);
+  opacity: 0.5;
+  filter: blur(120px);
+  box-shadow: 0 0 150px 60px var(--wp--preset--color--custom-primary);
+  animation: glowMove 10s infinite alternate ease-in-out;
+}
+
+.bg-light-custom-primary::before {
+  width: 500px;
+  height: 500px;
+  top: 20%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+}
+
+.bg-light-custom-primary::after {
+  width: 700px;
+  height: 700px;
+  top: 40%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes glowMove {
+  0% {
+    opacity: 0.4;
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    filter: blur(100px);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translate(-48%, -52%) scale(1.2) rotate(15deg);
+    filter: blur(140px);
+  }
+  100% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    filter: blur(100px);
+  }
+}
+
+/* ================= > Header < ================= */
+
+.wp-block-site-title > a {
+  text-decoration: none;
+}
+
+.wp-block-site-title > a:hover {
+  color: var(--wp--preset--color--custom-primary) !important;
+}
+
+.wp-block-navigation-item:hover {
+  color: var(--wp--preset--color--custom-primary) !important;
+}
+
+.wp-block-navigation__responsive-container-content {
+  -webkit-box-align: start !important;
+      -ms-flex-align: start !important;
+          align-items: start !important;
+}
+
+.wp-block-navigation:not(.has-background) .wp-block-navigation__submenu-container {
+  border: 0 !important;
+}
+
+.wp-block-navigation-submenu > li {
+  background: var(--wp--preset--color--custom-background-secondary) !important;
+  color: var(--wp--preset--color--custom-text-color);
+}
+
+.header-search-icon > div > button {
+  background: transparent;
+  padding: 0;
+}
+
+/* ================= > Blog < ================= */
+
+.wp-block-post-title > a:hover {
+  color: var(--wp--preset--color--custom-primary) !important;
+}
+
+.wp-block-button__link,
+.wp-block-search__button {
+  background: var(--wp--preset--color--custom-primary);
+  -webkit-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}
+
+.wp-block-button__link:hover,
+.wp-block-search__button:hover {
+  opacity: 0.8;
+}
+
+input,
+textarea {
+  background: var(--wp--preset--color--custom-background-secondary);
+  color: #fff !important;
+}
+
+/* ================= > Footer < ================= */
+
+.copy > a {
+  text-decoration: none;
+}
+
+.copy > a:hover {
+  opacity: 0.8;
+}
+
+/* ================= > Media Queries < ================= */
+
+@media (max-width: 1024px) {
+  .wp-block-columns {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+
+  .hero-button {
+    justify-content: flex-start !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) .wp-block-navigation__responsive-container-close,
+  .wp-block-navigation__responsive-container-open:not(.always-shown),
+  .wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) {
+    display: none;
+  }
+
+  .wp-block-navigation__responsive-container-open:not(.always-shown) {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  .wp-block-navigation__container {
+    --navigation-layout-justification-setting: flex-start !important;
+    --navigation-layout-justify: flex-start !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .wp-block-buttons {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,33 @@
+version: 0.0
+os: linux
+
+files:
+  - source: /
+    destination: /var/www/html
+    overwrite: true  # Ensures files are replaced
+
+file_exists_behavior: OVERWRITE  # Allows overwriting existing files
+
+hooks:
+  BeforeInstall:
+    - location: scripts/cleanup.sh  # Delete /var/www/html before deployment
+      timeout: 300
+      runas: root
+
+  AfterInstall:
+    - location: scripts/set_permissions.sh  # Set correct permissions
+      timeout: 300
+      runas: root
+
+  ApplicationStart:
+    - location: scripts/start_server.sh  # Start Apache
+      timeout: 300
+      runas: root
+
+  ApplicationStop:
+    - location: scripts/stop_server.sh  # Stop Apache
+      timeout: 300
+      runas: root
+
+
+
